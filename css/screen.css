@@ -2,12 +2,50 @@
 #FONTS
 \*------------------------------------*/
 
+@font-face {
+    font-family: "Inter-UI";
+    font-weight: 200;
+    src: url("../fonts/Inter-UI-Regular.woff2") format("woff2"),
+         url("../fonts/Inter-UI-Regular.woff2") format("woff");
+}
+
+@font-face {
+    font-family: "Inter-UI";
+    font-weight: 400;
+    src: url("../fonts/Inter-UI-Medium.woff2") format("woff2"),
+         url("../fonts/Inter-UI-Medium.woff2") format("woff");
+}
+
+@font-face {
+    font-family: "Inter-UI";
+    font-weight: 600;
+    src: url("../fonts/Inter-UI-Bold.woff2") format("woff2"),
+         url("../fonts/Inter-UI-Bold.woff2") format("woff");
+}
+
 /*------------------------------------*\
 #Variables
 \*------------------------------------*/
 
 :root {
+    --color-alpha-xx-light: #DCEAFF;
+    --color-alpha-x-light: #81ADF0;
+    --color-alpha-light: #4F95FF;
+    --color-alpha: #3385FF;
+    --color-alpha-x-dark: #2E77E6;
+    --color-alpha-xx-dark: #1B4186;
 
+    --color-neutral-xxxxx-light: #F5F6FA;
+    --color-neutral-xxxx-light: #E2E3E7;
+    --color-neutral-xxx-light: #CACCD4;
+    --color-neutral-xx-light: #B5B6C0;
+    --color-neutral-x-light: #A0A1AD;
+    --color-neutral: #8B8C9A;
+    --color-neutral-dark: #757787;
+    --color-neutral-x-dark: #606274;
+    --color-neutral-xx-dark: #4B4C60;
+    --color-neutral-xxx-dark: #35374D;
+    --color-neutral-xxxx-dark: #20223A;
 }
 
 /* CSS variables here */
@@ -23,14 +61,27 @@
 */
 
 html {
+
+    /* position */
+
+    /* box model */
+    box-sizing: border-box;
+
+    /* fonts */
     font-size: 16px;
     line-height: 1.5;
-    font-family: Helvetica, arial, sans-serif;
-    color: grey;
+    font-family: 'Inter-UI', Helvetica, arial, sans-serif;
+    color: var(--color-neutral-xxxx-dark);
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: white;
+
+    /* appearance */
+    background-color: var(--color-neutral-xxxxx-light);
+
+    /* other */
+    z-index: 1;
+    
 }
 
 *,
@@ -47,13 +98,13 @@ html {
 */
 
 ::-moz-selection {
-    background: HotPink;
+    background: var(--color-alpha);
     color: white;
     text-shadow: none;
 }
 
 ::selection {
-    background: HotPink;
+    background: var(--color-alpha);
     color: white;
     text-shadow: none;
 }
@@ -158,18 +209,22 @@ hr {
 }
 
 a {
-    color: HotPink;
+    color: var(--color-alpha);
     transition: all .1s ease-in-out;
 }
 
 a:visited,
 a:active {
-    color: HotPink;
+    color: var(--color-alpha);
 }
 
 a:hover,
 a:focus {
-    color: DeepPink;
+    color: var(--color-alpha-x-dark);
+}
+
+input, label {
+    display: block;
 }
 
 /*------------------------------------*\
@@ -189,6 +244,7 @@ a:focus {
 
 .o-row--login {
     /* stuff here to align the card */
+    align-items: center;
 }
 
 /* size modifiers */
@@ -426,11 +482,52 @@ a:focus {
 #COMPONENTS
 \*------------------------------------*/
 
+/* Blue background */
+.c-theme-blue {
+    background-color: var(--color-alpha);
+    fill: #FFFFFF;
+}
+
 /*
     Component: Logo
     ---
     Website main logo
 */
+
+.c-logo {
+    height: 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.c-logo__symbol {
+    display: block;
+    height: 100%;
+}
+
+.c-logo-outer-circle {
+    fill: var(--color-neutral-xxxx-dark);
+}
+
+.c-logo-inner-circle {
+    fill: var(--color-alpha);
+}
+
+.c-logo-text {
+    fill: var(--color-alpha-xx-dark);
+}
+
+.c-logo-outer-circle-blue {
+    fill: #FFFFFF;
+}
+
+.c-logo-inner-circle-blue {
+    fill: #FFFFFF;
+}
+
+.c-logo-text-blue {
+    fill: #FFFFFF;
+}
 
 /*
     Component: Card
@@ -438,11 +535,46 @@ a:focus {
     Card with box shadow
 */
 
+.c-card {
+    background-color: #FFFFFF;
+    border-radius: 3px; 
+    border: 1px;
+    box-shadow: inset 0 1px 1px #20223A15;
+}
+
+.c-card__body {
+    padding: 48px;
+}
+
+.c-card__title {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 26px;
+    padding-top: 48px;
+    margin-bottom: 0;
+}
+
+.c-card__footer {
+    padding: 24px;
+    border-top: 1px solid var(--color-neutral-xxxx-light);
+    text-align: center;
+}
+
 /*
     Component: Forms
     ---
     Everything form related here
 */
+
+.c-forms {
+
+}
+
+.c-forms-field--option {
+    display: flex;
+    align-items: center;
+}
 
 /*
     Component: Input
@@ -451,12 +583,24 @@ a:focus {
 */
 
 .c-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 
+    width: 100%;
+    border-radius: 4px;
+    font-family: 'Inter-UI';
+    font-size: 16px;
+    line-height: 24px;
+    padding: 10px;
+    border: 1px solid var(--color-neutral-xxxx-light);
 }
 
 .c-input:focus {
+    outline: none;
+    border-color: var(--color-alpha-x-light); 
+    box-shadow: 0 0 4px 2px var(--color-alpha-xx-light);
 }
-
 /*
     Component: Label
     ---
@@ -464,7 +608,15 @@ a:focus {
 */
 
 .c-label {
+    font-size: 14px;
+    line-height: 16px;
+    margin-bottom: 8px;
+    color: var(--color-neutral-x-dark)
+}
 
+.c-label--checkbox {
+    margin-left: 8px;
+    margin-bottom: 0;
 }
 
 /* If a input is focused within the form-field class change te color of the label */
@@ -533,19 +685,34 @@ a:focus {
 */
 
 .c-button {
-
+    display: inline-block;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 23px;
+    color: #FFFFFF;
+    border: 1px;
+    border-radius: 3px;
+    background-color: var(--color-alpha);
+    border-color: var(--color-alpha-x-dark);
+    padding-bottom: 14px;
+    padding-top: 14px;
+    text-align: center;
+    width: 100%;
 }
 
 .c-button:hover {
-
+    background-color: var(--color-alpha-light);
+    box-shadow: 4px 3px var(--color-alpha-xx-light);
 }
 
 .c-button:focus {
-
+    outline: none;
+    background-color: var(--color-alpha-xx-dark);
 }
 
 .c-button:active {
-
+    background-color: var(--color-alpha-xx-dark);
 }
 
 .c-button--block {
@@ -563,11 +730,11 @@ a:focus {
 */
 
 .u-color-neutral-base {
-    color: Silver;
+    color: var(--color-neutral-dark);
 }
 
 .u-color-neutral-dark {
-    color: Black;
+    color: var(--color-alpha-light);
 }
 
 /*

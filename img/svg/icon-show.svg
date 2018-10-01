@@ -1,0 +1,15 @@
+<svg id="icon-show" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: #8b8c9a;
+      }
+    </style>
+  </defs>
+  <rect id="Rectangle_29" data-name="Rectangle 29" class="cls-1" width="20" height="20"/>
+  <path id="Path_6" data-name="Path 6" class="cls-2" d="M6.4,133.876a11,11,0,0,1,19.571-.061l.029.061a11,11,0,0,1-19.571.061l-.029-.061Zm9.8,4a4,4,0,1,0,0-8h0a4,4,0,0,0,0,8Zm0-2a2,2,0,0,1,0-4h0a2,2,0,1,1,0,4Z" transform="translate(-6.2 -123.876)"/>
+</svg>
